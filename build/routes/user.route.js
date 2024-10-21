@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const user_controller_1 = __importDefault(require("../controllers/user.controller"));
 const user_validator_1 = __importDefault(require("../validators/user.validator"));
-const auth_middleware_1 = require("../middlewares/auth.middleware");
 class UserRoutes {
     constructor() {
         this.UserController = new user_controller_1.default();
@@ -14,7 +13,7 @@ class UserRoutes {
         this.UserValidator = new user_validator_1.default();
         this.routes = () => {
             this.router.post('/register', this.UserValidator.validateRegistration, this.UserController.register);
-            this.router.post('/login', this.UserValidator.validateLogin, auth_middleware_1.userAuth, this.UserController.login);
+            this.router.post('/login', this.UserValidator.validateLogin, this.UserController.login);
         };
         this.getRoutes = () => {
             return this.router;

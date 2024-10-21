@@ -1,2 +1,23 @@
 error: Could not connect to the database. Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/ {"reason":{"commonWireVersion":null,"compatibilityError":null,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{},"setName":null,"stale":false,"type":"ReplicaSetNoPrimary"},"stack":"MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://docs.atlas.mongodb.com/security-whitelist/\n    at Connection.openUri (C:\\Users\\Lenovo\\express-project\\node_modules\\mongoose\\lib\\connection.js:847:32)\n    at C:\\Users\\Lenovo\\express-project\\node_modules\\mongoose\\lib\\index.js:351:10\n    at C:\\Users\\Lenovo\\express-project\\node_modules\\mongoose\\lib\\helpers\\promiseOrCallback.js:32:5\n    at new Promise (<anonymous>)\n    at promiseOrCallback (C:\\Users\\Lenovo\\express-project\\node_modules\\mongoose\\lib\\helpers\\promiseOrCallback.js:31:10)\n    at Mongoose._promiseOrCallback (C:\\Users\\Lenovo\\express-project\\node_modules\\mongoose\\lib\\index.js:1149:10)\n    at Mongoose.connect (C:\\Users\\Lenovo\\express-project\\node_modules\\mongoose\\lib\\index.js:350:20)\n    at Database.<anonymous> (C:\\Users\\Lenovo\\express-project\\build\\config\\database.js:21:42)\n    at Generator.next (<anonymous>)\n    at C:\\Users\\Lenovo\\express-project\\build\\config\\database.js:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (C:\\Users\\Lenovo\\express-project\\build\\config\\database.js:4:12)\n    at Database.initializeDatabase (C:\\Users\\Lenovo\\express-project\\build\\config\\database.js:19:41)\n    at App.initializeDatabase (C:\\Users\\Lenovo\\express-project\\build\\index.js:40:17)\n    at new App (C:\\Users\\Lenovo\\express-project\\build\\index.js:28:14)\n    at Object.<anonymous> (C:\\Users\\Lenovo\\express-project\\build\\index.js:59:13)","timestamp":"2024-10-15T06:18:28.230Z"}
 error: Could not connect to the database. Invalid connection string {"name":"MongoParseError","stack":"MongoParseError: Invalid connection string\n    at parseConnectionString (C:\\Users\\Lenovo\\express-project\\node_modules\\mongodb\\lib\\core\\uri_parser.js:585:21)\n    at connect (C:\\Users\\Lenovo\\express-project\\node_modules\\mongodb\\lib\\operations\\connect.js:283:3)\n    at C:\\Users\\Lenovo\\express-project\\node_modules\\mongodb\\lib\\mongo_client.js:284:5\n    at maybePromise (C:\\Users\\Lenovo\\express-project\\node_modules\\mongodb\\lib\\utils.js:692:3)\n    at MongoClient.connect (C:\\Users\\Lenovo\\express-project\\node_modules\\mongodb\\lib\\mongo_client.js:280:10)\n    at C:\\Users\\Lenovo\\express-project\\node_modules\\mongoose\\lib\\connection.js:836:12\n    at new Promise (<anonymous>)\n    at Connection.openUri (C:\\Users\\Lenovo\\express-project\\node_modules\\mongoose\\lib\\connection.js:832:19)\n    at C:\\Users\\Lenovo\\express-project\\node_modules\\mongoose\\lib\\index.js:351:10\n    at C:\\Users\\Lenovo\\express-project\\node_modules\\mongoose\\lib\\helpers\\promiseOrCallback.js:32:5\n    at new Promise (<anonymous>)\n    at promiseOrCallback (C:\\Users\\Lenovo\\express-project\\node_modules\\mongoose\\lib\\helpers\\promiseOrCallback.js:31:10)\n    at Mongoose._promiseOrCallback (C:\\Users\\Lenovo\\express-project\\node_modules\\mongoose\\lib\\index.js:1149:10)\n    at Mongoose.connect (C:\\Users\\Lenovo\\express-project\\node_modules\\mongoose\\lib\\index.js:350:20)\n    at Database.<anonymous> (C:\\Users\\Lenovo\\express-project\\build\\config\\database.js:21:42)\n    at Generator.next (<anonymous>)","timestamp":"2024-10-15T07:08:26.354Z"}
+error: 
+    status - 500 
+    message - ValidationError: "name" length must be at least 6 characters long 
+    url - /api/v1/users/register 
+    method - POST 
+    IP - ::1
+   {"timestamp":"2024-10-21T09:53:54.696Z"}
+error: 
+    status - 500 
+    message - ValidationError: "name" length must be at least 6 characters long 
+    url - /api/v1/users/register 
+    method - POST 
+    IP - ::1
+   {"timestamp":"2024-10-21T09:54:10.473Z"}
+error: 
+    status - 500 
+    message - ValidationError: "password" length must be at least 8 characters long 
+    url - /api/v1/users/register 
+    method - POST 
+    IP - ::1
+   {"timestamp":"2024-10-21T09:54:29.529Z"}

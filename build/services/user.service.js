@@ -50,8 +50,8 @@ class UserService {
             }
             // Generate JWT Token 
             const token = jsonwebtoken_1.default.sign({ id: user._id, email: user.email, username: user.username }, // Payload data
-            process.env.JWT_SECRET, { expiresIn: '1h' });
-            return { user, token };
+            process.env.JWT_SECRET);
+            return { token };
         });
     }
 }
