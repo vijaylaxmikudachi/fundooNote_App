@@ -13,16 +13,8 @@ class UserRoutes {
         this.router = express_1.default.Router();
         this.UserValidator = new user_validator_1.default();
         this.routes = () => {
-            //route to get all users
-            this.router.get('', this.UserController.getAllUsers);
-            //route to create a new user
-            this.router.post('', this.UserValidator.newUser, this.UserController.newUser);
-            //route to get a single user
-            this.router.get('/:_id', auth_middleware_1.userAuth, this.UserController.getUser);
-            //route to update a single user
-            this.router.put('/:_id', this.UserController.updateUser);
-            //route to delete a single user
-            this.router.delete('/:_id', this.UserController.deleteUser);
+            this.router.post('/register', this.UserValidator.validateRegistration, this.UserController.register);
+            this.router.post('/login', this.UserValidator.validateLogin, auth_middleware_1.userAuth, this.UserController.login);
         };
         this.getRoutes = () => {
             return this.router;
@@ -31,3 +23,8 @@ class UserRoutes {
     }
 }
 exports.default = UserRoutes;
+// //my Router
+// const router = Router();
+// router.post('/register', validateRegistration, register);
+// router.post('/login', validateLogin, login);
+// export default router;

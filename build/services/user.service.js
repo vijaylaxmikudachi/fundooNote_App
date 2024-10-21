@@ -13,36 +13,45 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const user_model_1 = __importDefault(require("../models/user.model"));
+const bcryptjs_1 = __importDefault(require("bcryptjs"));
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 class UserService {
     constructor() {
-        //get all users
-        this.getAllUsers = () => __awaiter(this, void 0, void 0, function* () {
-            const data = yield user_model_1.default.find();
-            return data;
-        });
-        //create new user
-        this.newUser = (body) => __awaiter(this, void 0, void 0, function* () {
-            const data = yield user_model_1.default.create(body);
-            return data;
-        });
-        //update a user
-        this.updateUser = (_id, body) => __awaiter(this, void 0, void 0, function* () {
-            const data = yield user_model_1.default.findByIdAndUpdate({
-                _id
-            }, body, {
-                new: true
+        this.registerUser = (name, email, username, password, confirmPassword) => __awaiter(this, void 0, void 0, function* () {
+            // Check if the username or email already exists
+            const existingUser = yield user_model_1.default.findOne({ $or: [{ email: email }, { username: username }] });
+            if (existingUser) {
+                throw new Error('User with this email or username already exists');
+            }
+            //Here Adding Password Hashing , Before Saving Data In DB
+            const salt = yield bcryptjs_1.default.genSalt(10);
+            const hashPassword = yield bcryptjs_1.default.hash(password, salt);
+            // Save the user with the hashed password
+            const newUser = new user_model_1.default({
+                name,
+                email,
+                username,
+                password: hashPassword
             });
-            return data;
+            return yield newUser.save();
         });
-        //delete a user
-        this.deleteUser = (_id) => __awaiter(this, void 0, void 0, function* () {
-            yield user_model_1.default.findByIdAndDelete(_id);
-            return '';
-        });
-        //get a single user
-        this.getUser = (_id) => __awaiter(this, void 0, void 0, function* () {
-            const data = yield user_model_1.default.findById(_id);
-            return data;
+        // Define a function to log in a user
+        this.loginUser = (email, username, password) => __awaiter(this, void 0, void 0, function* () {
+            const user = yield user_model_1.default.findOne({ $or: [{ email: email }, { username: username }] });
+            if (!user) {
+                throw new Error('User not found');
+            }
+            // Compare the provided password with the hashed password in the database
+            const isMatch = yield bcryptjs_1.default.compare(password, user.password);
+            if (!isMatch) {
+                throw new Error('Invalid credentials');
+            }
+            // Generate JWT Token 
+            const token = jsonwebtoken_1.default.sign({ id: user._id, email: user.email, username: user.username }, // Payload data
+            process.env.JWT_SECRET, { expiresIn: '1h' });
+            return { user, token };
         });
     }
 }

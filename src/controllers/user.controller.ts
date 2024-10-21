@@ -1,54 +1,37 @@
-import { Request, Response } from 'express';
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
-import User, { IUser } from '../models/user.model';
-import dotenv from 'dotenv';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import HttpStatus from 'http-status-codes';
+import UserService from '../services/user.service';
+import { Request, Response, NextFunction } from 'express';
 
-dotenv.config();
 
-// User registration
-export const registerUser = async (req: Request, res: Response) => {
-  const { name, email, username, password } = req.body;
-  try {
-    const existingUser = await User.findOne({ $or: [{ email }, { username }] });
-    if (existingUser) {
-      return res.status(400).json({ message: 'User already exists' });
+class UserController {
+    public UserService = new UserService();
+
+
+  // Controller for registering a new user
+  public register = async (req: Request, res: Response) => {
+    try {
+      const { name, email, username, password, confirmPassword } = req.body;
+      const newUser = await this.UserService.registerUser(name, email, username,  password, confirmPassword); 
+      res.status(201).json({ message: 'User registered successfully', user: newUser });
+    } catch (error) {
+      res.status(400).json({ message: error.message });
     }
+  };
 
-    const hashedPassword = await bcrypt.hash(password, 10);
 
-    const newUser = new User({
-      name,
-      email,
-      username,
-      password: hashedPassword,
-    });
-
-    await newUser.save();
-
-    res.status(201).json({ message: 'User registered successfully' });
-  } catch (err) {
-    res.status(500).json({ message: 'Server error', error: err.message });
-  }
-};
-
-// User login
-export const loginUser = async (req: Request, res: Response) => {
-  const { usernameOrEmail, password } = req.body;
-  try {
-    const user = await User.findOne({ $or: [{ email: usernameOrEmail }, { username: usernameOrEmail }] });
-    if (!user) {
-      return res.status(400).json({ message: 'Invalid credentials' });
+  // Controller for logging in a user
+  public login = async (req: Request, res: Response) => {
+    try {
+      const { email,username, password } = req.body;
+      const user = await this.UserService.loginUser(email,username, password); 
+      res.status(200).json({ message: 'Login successful', user });
+    } catch (error) {
+      res.status(400).json({ message: error.message });
     }
+  };
+ 
+}
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ message: 'Invalid credentials' });
-    }
+export default UserController;
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET || '', { expiresIn: '1h' });
-    res.status(200).json({ token, user });
-  } catch (err) {
-    res.status(500).json({ message: 'Server error', error: err.message });
-  }
-};

@@ -18,12 +18,7 @@ class Database {
     constructor() {
         this.initializeDatabase = () => __awaiter(this, void 0, void 0, function* () {
             try {
-                yield mongoose_1.default.connect(this.DATABASE, {
-                    useFindAndModify: false,
-                    useCreateIndex: true,
-                    useNewUrlParser: true,
-                    useUnifiedTopology: true
-                });
+                yield mongoose_1.default.connect(this.DATABASE);
                 this.logger.info('Connected to the database.');
             }
             catch (error) {

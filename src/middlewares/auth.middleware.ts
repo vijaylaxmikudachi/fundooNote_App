@@ -2,6 +2,7 @@
 import HttpStatus from 'http-status-codes';
 import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
+import dotenv from 'dotenv';
 
 /**
  * Middleware to authenticate if user has a valid Authorization token
@@ -11,6 +12,9 @@ import { Request, Response, NextFunction } from 'express';
  * @param {Object} res
  * @param {Function} next
  */
+
+dotenv.config(); 
+
 export const userAuth = async (
   req: Request,
   res: Response,
@@ -25,7 +29,7 @@ export const userAuth = async (
       };
     bearerToken = bearerToken.split(' ')[1];
 
-    const { user }: any = await jwt.verify(bearerToken, 'your-secret-key');
+    const { user }: any = await jwt.verify(bearerToken, process.env.JWT_SECRET as string);
     res.locals.user = user;
     res.locals.token = bearerToken;
     next();
@@ -33,3 +37,6 @@ export const userAuth = async (
     next(error);
   }
 };
+
+
+

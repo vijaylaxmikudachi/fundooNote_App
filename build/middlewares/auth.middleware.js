@@ -16,6 +16,7 @@ exports.userAuth = void 0;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const http_status_codes_1 = __importDefault(require("http-status-codes"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const dotenv_1 = __importDefault(require("dotenv"));
 /**
  * Middleware to authenticate if user has a valid Authorization token
  * Authorization: Bearer <token>
@@ -24,6 +25,7 @@ const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
  * @param {Object} res
  * @param {Function} next
  */
+dotenv_1.default.config();
 const userAuth = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let bearerToken = req.header('Authorization');
@@ -33,7 +35,7 @@ const userAuth = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
                 message: 'Authorization token is required'
             };
         bearerToken = bearerToken.split(' ')[1];
-        const { user } = yield jsonwebtoken_1.default.verify(bearerToken, 'your-secret-key');
+        const { user } = yield jsonwebtoken_1.default.verify(bearerToken, process.env.JWT_SECRET);
         res.locals.user = user;
         res.locals.token = bearerToken;
         next();
