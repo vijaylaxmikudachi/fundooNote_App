@@ -2,8 +2,9 @@ import { Document } from 'mongoose';
 
 export interface IUser extends Document {
   _id: string | number;
-  name: string;
-  email: String;
-  username:String;
-  password:String;
+  firstName:string;
+  lastName:string;
+  email:string;
+  password:string;
+  resetPasswordToken?: string;
 }
