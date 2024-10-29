@@ -1,48 +1,69 @@
 import Joi from '@hapi/joi';
 import { Request, Response, NextFunction } from 'express';
-import { body, validationResult } from 'express-validator';
 
 class UserValidator {
-  public validateRegistration = (req: Request, res: Response, next: NextFunction): void => {
+  //validation for register
+  public newUser = (req: Request, res: Response, next: NextFunction): void => {
     const schema = Joi.object({
-      name: Joi.string().min(6).required(),
-      email:Joi.string().email().required(),
-      username:Joi.string().min(8).required(),
-      password:Joi.string().min(8).required()
-
+      firstName: Joi.string().min(2).max(30).required(),
+      lastName: Joi.string().min(2).max(30).required(),
+      email: Joi.string().email().required(),
+      password: Joi.string().min(6).required()
     });
+
     const { error } = schema.validate(req.body);
     if (error) {
-      next(error);
+      return next(error); // Pass the validation error to the next middleware
+    }
+
+    next(); // Proceed to the next middleware if validation is successful
+  };
+
+  //validation for login
+  public userlogin=(req: Request, res: Response, next: NextFunction): void =>{
+    const schema = Joi.object({
+      email: Joi.string().email().required(),
+      password: Joi.string().min(6).required()
+    });
+
+    const { error } = schema.validate(req.body);
+    if (error) {
+      return next(error); // Pass the validation error to the next middleware
+    }
+
+    next(); // Proceed to the next middleware if validation is successful
+  }
+
+  // Validate email for forget password
+  public emailValidator = (req: Request, res: Response, next: NextFunction) => {
+    const schema = Joi.object({
+      email: Joi.string().email().required(),
+    });
+
+    const { error } = schema.validate(req.body);
+    if (error) {
+      return res.status(400).json({
+        error: error.details[0].message,
+      });
     }
     next();
   };
 
-  public validateLogin = (req: Request, res: Response, next: NextFunction): void => {
-    if(req.body.email){
-      var schema = Joi.object({
-        email:Joi.string().email().required(),
-        password:Joi.string().required()
-  
-      });
-    }
-    else{
-      var schema = Joi.object({
-        username:Joi.string().required(),
-        password:Joi.string().required()
-  
-      });
-    }
-    
+  // Validate reset password request (token and new password)
+  public resetPasswordValidator = (req: Request, res: Response, next: NextFunction) => {
+    const schema = Joi.object({
+      token: Joi.string().required(),
+      newPassword: Joi.string().min(6).required(),
+    });
+
     const { error } = schema.validate(req.body);
     if (error) {
-      next(error);
+      return res.status(400).json({
+        error: error.details[0].message,
+      });
     }
     next();
   };
-
 }
-
-
 
 export default UserValidator;
