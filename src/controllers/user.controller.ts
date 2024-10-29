@@ -1,37 +1,80 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import HttpStatus from 'http-status-codes';
-import UserService from '../services/user.service';
+import userService from '../services/user.service';
 import { Request, Response, NextFunction } from 'express';
-
+import { sendEmail } from '../utils/user.util';
 
 class UserController {
-    public UserService = new UserService();
+  public UserService = new userService();
 
-
-  // Controller for registering a new user
-  public register = async (req: Request, res: Response) => {
+  // Register user
+  public registerUser = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     try {
-      const { name, email, username, password, confirmPassword } = req.body;
-      const newUser = await this.UserService.registerUser(name, email, username,  password, confirmPassword); 
-      res.status(201).json({ message: 'User registered successfully', user: newUser });
+      const data = await this.UserService.registerUser(req.body);
+      res.status(HttpStatus.CREATED).json({
+        code: HttpStatus.CREATED,
+        data: data,
+        message: 'User registered successfully'
+      });
     } catch (error) {
-      res.status(400).json({ message: error.message });
+      next(error); // Pass the error to the next middleware
     }
   };
 
-
-  // Controller for logging in a user
-  public login = async (req: Request, res: Response) => {
+  // Log in user
+  public loginUser = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     try {
-      const { email,username, password } = req.body;
-      const user = await this.UserService.loginUser(email,username, password); 
-      res.status(200).json({ message: 'Login successful', user });
+      const { token, user } = await this.UserService.loginUser(req.body);
+      res.status(HttpStatus.OK).json({
+        code: HttpStatus.OK,
+        data: { user, token }, // Return the user and token
+        message: 'Login successful'
+      });
     } catch (error) {
-      res.status(400).json({ message: error.message });
+      res.status(HttpStatus.UNAUTHORIZED).send(error.message);
     }
   };
- 
+
+  // Forget password
+  public forgetPassword = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+    try {
+      const { email } = req.body;
+      const token = await this.UserService.forgetPassword(email);
+
+      // Send token via email
+      await sendEmail(email, token);
+
+      res.status(HttpStatus.OK).json({
+        code: HttpStatus.OK,
+        message: 'Reset token sent to email successfully',
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
+  // Reset password
+  public resetPassword = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+    try {
+      const token = req.header('Authorization')?.split(' ')[1];
+      const { newPassword } = req.body;
+      if (!token) {
+        return res.status(HttpStatus.UNAUTHORIZED).json({
+          code: HttpStatus.UNAUTHORIZED,
+          message: 'Authorization token is required'
+        });
+      }
+      const userId = res.locals.user; // Get the user ID from the JWT
+      await this.UserService.resetPassword(newPassword,userId);
+
+      res.status(HttpStatus.OK).json({
+        code: HttpStatus.OK,
+        message: 'Password reset successfully',
+      });
+    } catch (error) {
+      next(error);
+    }
+  };
+
 }
 
 export default UserController;
-
