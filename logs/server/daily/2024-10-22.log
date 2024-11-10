@@ -1,0 +1,54 @@
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-22T05:58:12.331Z"}
+info: Connected to the database. {"timestamp":"2024-10-22T05:58:12.356Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-22T07:46:07.705Z"}
+info: Connected to the database. {"timestamp":"2024-10-22T07:46:07.737Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-22T07:56:59.022Z"}
+info: Connected to the database. {"timestamp":"2024-10-22T07:56:59.043Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-22T07:59:04.653Z"}
+info: Connected to the database. {"timestamp":"2024-10-22T07:59:04.676Z"}
+error: 
+    status - 500 
+    message - JsonWebTokenError: invalid token
+    at module.exports [as verify] (C:\Users\Lenovo\express-project\node_modules\jsonwebtoken\verify.js:82:17)
+    at C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:38:55
+    at Generator.next (<anonymous>)
+    at C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:4:12)
+    at userAuth (C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:29:38)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:119:3) 
+    url - /api/v1/notes/trash/67173ff3d287110e678040fc 
+    method - PUT 
+    IP - ::1
+   {"timestamp":"2024-10-22T08:03:29.587Z"}
+error: 
+    status - 500 
+    message - JsonWebTokenError: invalid token
+    at module.exports [as verify] (C:\Users\Lenovo\express-project\node_modules\jsonwebtoken\verify.js:82:17)
+    at C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:38:55
+    at Generator.next (<anonymous>)
+    at C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:4:12)
+    at userAuth (C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:29:38)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:119:3) 
+    url - /api/v1/notes/trash/67173ff3d287110e678040fc 
+    method - PUT 
+    IP - ::1
+   {"timestamp":"2024-10-22T08:43:46.851Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-22T08:44:18.775Z"}
+info: Connected to the database. {"timestamp":"2024-10-22T08:44:18.810Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-22T08:51:35.335Z"}
+info: Connected to the database. {"timestamp":"2024-10-22T08:51:35.364Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-22T08:57:37.628Z"}
+info: Connected to the database. {"timestamp":"2024-10-22T08:57:37.651Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-22T09:06:38.223Z"}
+info: Connected to the database. {"timestamp":"2024-10-22T09:06:38.243Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-22T09:26:03.403Z"}
+info: Connected to the database. {"timestamp":"2024-10-22T09:26:03.443Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-22T09:56:33.681Z"}
+info: Connected to the database. {"timestamp":"2024-10-22T09:56:33.698Z"}

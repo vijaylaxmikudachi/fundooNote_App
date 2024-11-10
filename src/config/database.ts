@@ -1,8 +1,6 @@
 import mongoose from 'mongoose';
 import Logger from './logger';
 
-import dotenv from 'dotenv';
-
 class Database {
   private DATABASE: string;
   private logger;
@@ -19,14 +17,16 @@ class Database {
 
   public initializeDatabase = async (): Promise<void> => {
     try {
-      await mongoose.connect(this.DATABASE);
+      await mongoose.connect(this.DATABASE, {
+        useFindAndModify: false,
+        useCreateIndex: true,
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+      });
       this.logger.info('Connected to the database.');
     } catch (error) {
       this.logger.error('Could not connect to the database.', error);
     }
   };
 }
-
-
-
 export default Database;
