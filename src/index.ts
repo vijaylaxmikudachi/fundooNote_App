@@ -12,7 +12,6 @@ import Logger from './config/logger';
 
 import morgan from 'morgan';
 
-
 class App {
   public app: Application;
   public host: string | number;
@@ -70,10 +69,7 @@ class App {
   public getApp(): Application {
     return this.app;
   }
- 
-
 }
-
 
 const app = new App();
 

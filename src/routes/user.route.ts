@@ -1,38 +1,35 @@
 import express, { IRouter } from 'express';
 import userController from '../controllers/user.controller';
 import userValidator from '../validators/user.validator';
-
-
-
+import { passwordResetAuth } from '../middlewares/auth.middleware';
 
 class UserRoutes {
   private UserController = new userController();
   private router = express.Router();
   private UserValidator = new userValidator();
 
-  constructor(){
-    this.routes()
+  constructor() {
+    this.routes();
   }
-  
-  private routes=()=>{
-    this.router.post('/register', this.UserValidator.validateRegistration, this.UserController.register);
-    this.router.post('/login', this.UserValidator.validateLogin , this.UserController.login);
 
-  }
+  private routes = () => {
   
-  public getRoutes=()=>{
-    return this.router
+    //route to create a new user
+    this.router.post('/register',this.UserValidator.newUser,this.UserController.registerUser);
+
+    //route to login
+    this.router.post('/login',this.UserValidator.userlogin,this.UserController.loginUser);
+
+    // Forget password route
+    this.router.post('/forget-password', this.UserController.forgetPassword);
+
+    // Reset password route
+    this.router.post('/reset-password', passwordResetAuth,this.UserController.resetPassword);
   };
 
+  public getRoutes = (): IRouter => {
+    return this.router;
+  };
 }
 
 export default UserRoutes;
-
-// //my Router
-// const router = Router();
-
-// router.post('/register', validateRegistration, register);
-// router.post('/login', validateLogin, login);
-
-// export default router;
-
