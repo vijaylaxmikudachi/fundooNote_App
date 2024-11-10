@@ -27,3 +27,48 @@ error:
    {"timestamp":"2024-10-21T09:54:29.529Z"}
 info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-21T10:05:50.856Z"}
 info: Connected to the database. {"timestamp":"2024-10-21T10:05:50.875Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-21T10:43:50.396Z"}
+info: Connected to the database. {"timestamp":"2024-10-21T10:43:50.418Z"}
+error: 
+    status - 500 
+    message - ValidationError: "username" is required 
+    url - /api/v1/users/login 
+    method - POST 
+    IP - ::1
+   {"timestamp":"2024-10-21T10:58:50.144Z"}
+error: 
+    status - 500 
+    message - SyntaxError: Expected ',' or '}' after property value in JSON at position 34 (line 4 column 1)
+    at JSON.parse (<anonymous>)
+    at parse (C:\Users\Lenovo\express-project\node_modules\body-parser\lib\types\json.js:92:19)
+    at C:\Users\Lenovo\express-project\node_modules\body-parser\lib\read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:211:14)
+    at invokeCallback (C:\Users\Lenovo\express-project\node_modules\raw-body\index.js:238:16)
+    at done (C:\Users\Lenovo\express-project\node_modules\raw-body\index.js:227:7)
+    at IncomingMessage.onEnd (C:\Users\Lenovo\express-project\node_modules\raw-body\index.js:287:7)
+    at IncomingMessage.emit (node:events:520:28)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) 
+    url - /api/v1/users/login 
+    method - POST 
+    IP - ::1
+   {"timestamp":"2024-10-21T11:00:15.966Z"}
+error: 
+    status - 500 
+    message - ValidationError: "username" length must be at least 8 characters long 
+    url - /api/v1/users/register 
+    method - POST 
+    IP - ::1
+   {"timestamp":"2024-10-21T11:03:01.264Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-21T11:09:00.512Z"}
+info: Connected to the database. {"timestamp":"2024-10-21T11:09:00.530Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-21T11:13:23.465Z"}
+info: Connected to the database. {"timestamp":"2024-10-21T11:13:23.513Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-21T11:16:41.105Z"}
+info: Connected to the database. {"timestamp":"2024-10-21T11:16:41.161Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-21T11:40:08.213Z"}
+info: Connected to the database. {"timestamp":"2024-10-21T11:40:08.240Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-21T11:52:05.383Z"}
+info: Connected to the database. {"timestamp":"2024-10-21T11:52:05.416Z"}
+info: Server started at http://localhost:3000/api/v1/ {"timestamp":"2024-10-21T12:56:51.467Z"}
+info: Connected to the database. {"timestamp":"2024-10-21T12:56:51.485Z"}
