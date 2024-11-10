@@ -11,6 +11,11 @@ import ErrorHandler from './middlewares/error.middleware';
 import Logger from './config/logger';
 
 import morgan from 'morgan';
+import { connectToRabbitMQ } from './utils/rabbitmq';
+
+// Initialize RabbitMQ connection
+connectToRabbitMQ();
+
 
 class App {
   public app: Application;

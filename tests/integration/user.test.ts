@@ -2,6 +2,8 @@ import { expect } from 'chai';
 import request from 'supertest';
 import mongoose from 'mongoose';
 import app from '../../src/index';
+import dotenv from 'dotenv';
+dotenv.config();
 
 describe('User APIs Test', () => {
   before((done) => {

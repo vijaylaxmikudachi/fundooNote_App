@@ -22,7 +22,7 @@ class UserService {
   };
 
   // Log in user
-  public loginUser = async (body: { email: string; password: string }): Promise<{ token: string; user: IUser }> => {
+  public loginUser = async (body: { email: string; password: string }): Promise<{ token: string; }> => {
     const { email, password } = body;
 
     // Check if user exists
@@ -41,7 +41,7 @@ class UserService {
     // Generate JWT
     const token = jwt.sign({user:{ _id: user._id,email: user.email}}, process.env.JWT_SECRET);
 
-    return { token, user }; // Return the token and user object if login is successful
+    return { token }; // Return the token and user object if login is successful
   };
 
   // Forget password service
