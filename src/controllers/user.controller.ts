@@ -18,6 +18,13 @@ class UserController {
         console.error("User ID not found in response data");
       }
 
+class UserController {
+  public UserService = new userService();
+
+  // Register user
+  public registerUser = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+    try {
+      const data = await this.UserService.registerUser(req.body);
       res.status(HttpStatus.CREATED).json({
         code: HttpStatus.CREATED,
         data: data,
@@ -35,6 +42,10 @@ class UserController {
       res.status(HttpStatus.OK).json({
         code: HttpStatus.OK,
         data: { token }, // Return the user and token
+      const { token, user } = await this.UserService.loginUser(req.body);
+      res.status(HttpStatus.OK).json({
+        code: HttpStatus.OK,
+        data: { user, token }, // Return the user and token
         message: 'Login successful'
       });
     } catch (error) {
