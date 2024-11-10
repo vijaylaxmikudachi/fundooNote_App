@@ -23,6 +23,7 @@ export const connectToRabbitMQ = (): void => {
   });
 };
 
+//Publisher function for sending message.
 export const publishMessage = (queue: string, message: any): void => {
   if (!channel) {
     console.error('RabbitMQ channel not initialized');
