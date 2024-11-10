@@ -3,6 +3,7 @@ import amqp from 'amqplib/callback_api';
 let channel: amqp.Channel;
 let connection: amqp.Connection;
 
+//conncetion for RabbitMQ server
 export const connectToRabbitMQ = (): void => {
   amqp.connect('amqp://localhost', (error, conn) => {
     if (error) {

@@ -11,7 +11,7 @@ import ErrorHandler from './middlewares/error.middleware';
 import Logger from './config/logger';
 
 import morgan from 'morgan';
-import { connectToRabbitMQ } from './utils/rabbitmq';//importing rabbit server connection 
+import { connectToRabbitMQ } from './utils/rabbitmq'; 
 
 // Initialize RabbitMQ connection
 connectToRabbitMQ();

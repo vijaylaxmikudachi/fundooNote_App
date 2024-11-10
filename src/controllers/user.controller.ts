@@ -12,7 +12,7 @@ class UserController {
     try {
       const data = await this.UserService.registerUser(req.body);
       if (data && data._id) {
-        // Send the new user data to the RabbitMQ queue = user-queue
+        // Send the new user data to the RabbitMQ queue = user-queue for consumer
         publishMessage('user-queue', { userName: data.firstName,action: 'register successfully..' });
       } else {
         console.error("User ID not found in response data");
