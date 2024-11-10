@@ -55,7 +55,7 @@ describe('User APIs Test', () => {
         isArchive: true,
         isTrash: false,
     };
-    let token; // For storing token generated during login
+    let token;
     let createdNoteId;
     describe('User Registration', () => {
         it('should register a new user successfully', () => __awaiter(void 0, void 0, void 0, function* () {
@@ -73,19 +73,22 @@ describe('User APIs Test', () => {
                 .send({ email: userData.email, password: userData.password });
             console.log('Login Response:', res.body);
             (0, chai_1.expect)(res.status).to.equal(200);
-            (0, chai_1.expect)(res.body.data).to.have.property('token'); // Check for the token presence
+            (0, chai_1.expect)(res.body.data).to.have.property('token');
             token = res.body.data.token;
         }));
     });
     describe('Forgot Password', () => {
-        it('should send a reset token to the user\'s email', () => __awaiter(void 0, void 0, void 0, function* () {
-            const res = yield (0, supertest_1.default)(index_1.default.getApp())
-                .post('/api/v1/users/forget-password')
-                .send({ email: userData.email });
-            console.log(res.body);
-            (0, chai_1.expect)(res.status).to.equal(200);
-            (0, chai_1.expect)(res.body).to.have.property('message', 'Reset token sent to email successfully');
-        }));
+        it('should send a reset token to the user\'s email', function () {
+            return __awaiter(this, void 0, void 0, function* () {
+                this.timeout(10000); // Increase timeout to 10 seconds
+                const res = yield (0, supertest_1.default)(index_1.default.getApp())
+                    .post('/api/v1/users/forget-password')
+                    .send({ email: userData.email });
+                console.log(res.body);
+                (0, chai_1.expect)(res.status).to.equal(200);
+                (0, chai_1.expect)(res.body).to.have.property('message', 'Reset token sent to email successfully');
+            });
+        });
     });
     describe('Create Note', () => {
         it('should create a new note successfully', () => __awaiter(void 0, void 0, void 0, function* () {
@@ -95,7 +98,7 @@ describe('User APIs Test', () => {
                 .send(noteData);
             console.log(res.body);
             (0, chai_1.expect)(res.status).to.equal(201);
-            (0, chai_1.expect)(res.body).to.have.property('message', 'Note created successfully'); // Adjust according to your API response
+            (0, chai_1.expect)(res.body).to.have.property('message', 'Note created successfully');
             createdNoteId = res.body.data._id; // Store the created note ID for further tests
         }));
     });
@@ -125,7 +128,7 @@ describe('User APIs Test', () => {
                 .set('Authorization', `Bearer ${token}`)
                 .send(updatedNoteData);
             (0, chai_1.expect)(res.status).to.equal(200);
-            (0, chai_1.expect)(res.body).to.have.property('message', 'Note updated successfully'); // Adjust according to your API response
+            (0, chai_1.expect)(res.body).to.have.property('message', 'Note updated successfully');
         }));
     });
     describe('Archive/Unarchive Note', () => {
@@ -135,7 +138,7 @@ describe('User APIs Test', () => {
                 .set('Authorization', `Bearer ${token}`);
             console.log(res.body);
             (0, chai_1.expect)(res.status).to.equal(200);
-            (0, chai_1.expect)(res.body).to.have.property('message', 'Note unarchived successfully'); // Adjust according to your API response
+            (0, chai_1.expect)(res.body).to.have.property('message', 'Note unarchived successfully');
         }));
     });
     describe('Trash/Restore Note', () => {
@@ -144,15 +147,8 @@ describe('User APIs Test', () => {
                 .put(`/api/v1/notes/trash/${createdNoteId}`)
                 .set('Authorization', `Bearer ${token}`);
             (0, chai_1.expect)(res.status).to.equal(200);
-            (0, chai_1.expect)(res.body).to.have.property('message', 'Note moved to trash successfully'); // Adjust according to your API response
+            (0, chai_1.expect)(res.body).to.have.property('message', 'Note moved to trash successfully');
         }));
-        // it('should restore the trashed note successfully', async () => {
-        //   const res = await request(app.getApp())
-        //     .put(`/api/v1/notes/trash/${createdNoteId}`)
-        //     .set('Authorization', `Bearer ${token}`);
-        //   expect(res.status).to.equal(200);
-        //   expect(res.body).to.have.property('message', 'Note restored successfully'); // Adjust according to your API response
-        // });
     });
     describe('Delete Note Forever', () => {
         it('should delete a note permanently', () => __awaiter(void 0, void 0, void 0, function* () {
@@ -160,7 +156,7 @@ describe('User APIs Test', () => {
                 .delete(`/api/v1/notes/delete/${createdNoteId}`)
                 .set('Authorization', `Bearer ${token}`);
             (0, chai_1.expect)(res.status).to.equal(200);
-            (0, chai_1.expect)(res.body).to.have.property('message', 'Note deleted permanently'); // Adjust according to your API response
+            (0, chai_1.expect)(res.body).to.have.property('message', 'Note deleted permanently');
         }));
     });
 });

@@ -1,0 +1,93 @@
+info: Server started at http://localhost:8000/api/v1/ {"timestamp":"2024-11-06T08:59:44.975Z"}
+info: Connected to the database. {"timestamp":"2024-11-06T08:59:45.008Z"}
+error: 
+    status - 500 
+    message - ValidationError: "email" is required 
+    url - /api/v1/users/login 
+    method - POST 
+    IP - ::1
+   {"timestamp":"2024-11-06T09:01:59.666Z"}
+error: 
+    status - 500 
+    message - ValidationError: "password" length must be at least 6 characters long 
+    url - /api/v1/users/register 
+    method - POST 
+    IP - ::1
+   {"timestamp":"2024-11-06T09:18:56.207Z"}
+error: 
+    status - 500 
+    message - Error: User already exists
+    at UserService.<anonymous> (C:\Users\Lenovo\express-project\src\services\user.service.ts:12:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Lenovo\express-project\src\services\user.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5) 
+    url - /api/v1/users/register 
+    method - POST 
+    IP - ::1
+   {"timestamp":"2024-11-06T09:19:14.633Z"}
+error: 
+    status - 500 
+    message - Error: User already exists
+    at UserService.<anonymous> (C:\Users\Lenovo\express-project\src\services\user.service.ts:12:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Lenovo\express-project\src\services\user.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5) 
+    url - /api/v1/users/register 
+    method - POST 
+    IP - ::1
+   {"timestamp":"2024-11-06T09:19:37.704Z"}
+info: Server started at http://localhost:8000/api/v1/ {"timestamp":"2024-11-06T09:20:13.137Z"}
+info: Connected to the database. {"timestamp":"2024-11-06T09:20:13.162Z"}
+error: 
+    status - 500 
+    message - Error: User already exists
+    at UserService.<anonymous> (C:\Users\Lenovo\express-project\src\services\user.service.ts:12:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Lenovo\express-project\src\services\user.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5) 
+    url - /api/v1/users/register 
+    method - POST 
+    IP - ::1
+   {"timestamp":"2024-11-06T09:20:19.540Z"}
+info: Server started at http://localhost:8000/api/v1/ {"timestamp":"2024-11-06T09:31:15.569Z"}
+info: Connected to the database. {"timestamp":"2024-11-06T09:31:15.595Z"}
+error: 
+    status - 500 
+    message - JsonWebTokenError: invalid signature
+    at C:\Users\Lenovo\express-project\node_modules\jsonwebtoken\verify.js:133:19
+    at getSecret (C:\Users\Lenovo\express-project\node_modules\jsonwebtoken\verify.js:90:14)
+    at Object.module.exports [as verify] (C:\Users\Lenovo\express-project\node_modules\jsonwebtoken\verify.js:94:10)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:29:36
+    at Generator.next (<anonymous>)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:4:12)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:19:20
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10) 
+    url - /api/v1/notes/ 
+    method - GET 
+    IP - ::1
+   {"timestamp":"2024-11-06T09:31:57.694Z"}
+info: Server started at http://localhost:8000/api/v1/ {"timestamp":"2024-11-06T09:57:09.989Z"}
+info: Connected to the database. {"timestamp":"2024-11-06T09:57:10.021Z"}
+info: Server started at http://localhost:8000/api/v1/ {"timestamp":"2024-11-06T10:29:52.175Z"}
+info: Connected to the database. {"timestamp":"2024-11-06T10:29:52.211Z"}
+error: 
+    status - 500 
+    message - Error: Note not found or it is not in trash. Cannot delete forever.
+    at NoteService.<anonymous> (C:\Users\Lenovo\express-project\src\services\note.service.ts:73:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Lenovo\express-project\src\services\note.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5) 
+    url - /api/v1/notes/delete/672b3e00414d870da08f81f2 
+    method - DELETE 
+    IP - ::1
+   {"timestamp":"2024-11-06T10:30:26.948Z"}
+info: Server started at http://localhost:8000/api/v1/ {"timestamp":"2024-11-06T10:42:15.405Z"}
+info: Connected to the database. {"timestamp":"2024-11-06T10:42:15.431Z"}

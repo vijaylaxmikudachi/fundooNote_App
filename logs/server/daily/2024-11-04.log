@@ -1,0 +1,785 @@
+info: Server started at http://localhost:8000/api/v1/ {"timestamp":"2024-11-04T06:27:43.606Z"}
+info: Connected to the database. {"timestamp":"2024-11-04T06:27:43.653Z"}
+error: 
+    status - 500 
+    message - Error: User already exists
+    at UserService.<anonymous> (C:\Users\Lenovo\express-project\src\services\user.service.ts:12:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Lenovo\express-project\src\services\user.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5) 
+    url - /api/v1/users/register 
+    method - POST 
+    IP - ::ffff:127.0.0.1
+   {"timestamp":"2024-11-04T06:27:43.731Z"}
+error: 
+    status - 500 
+    message - Error: User not found
+    at UserService.<anonymous> (C:\Users\Lenovo\express-project\src\services\user.service.ts:51:13)
+    at Generator.next (<anonymous>)
+    at fulfilled (C:\Users\Lenovo\express-project\src\services\user.service.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5) 
+    url - /api/v1/users/forget-password 
+    method - POST 
+    IP - ::ffff:127.0.0.1
+   {"timestamp":"2024-11-04T06:27:43.784Z"}
+error: 
+    status - 500 
+    message - JsonWebTokenError: jwt malformed
+    at Object.module.exports [as verify] (C:\Users\Lenovo\express-project\node_modules\jsonwebtoken\verify.js:63:17)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:29:36
+    at Generator.next (<anonymous>)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:4:12)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:19:20
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at logger (C:\Users\Lenovo\express-project\node_modules\morgan\index.js:144:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\Lenovo\express-project\node_modules\body-parser\lib\read.js:137:5
+    at AsyncResource.runInAsyncScope (node:async_hooks:211:14)
+    at invokeCallback (C:\Users\Lenovo\express-project\node_modules\raw-body\index.js:238:16)
+    at done (C:\Users\Lenovo\express-project\node_modules\raw-body\index.js:227:7)
+    at IncomingMessage.onEnd (C:\Users\Lenovo\express-project\node_modules\raw-body\index.js:287:7)
+    at IncomingMessage.emit (node:events:520:28)
+    at IncomingMessage.emit (node:domain:488:12)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at processTicksAndRejections (node:internal/process/task_queues:90:21) 
+    url - /api/v1/notes/create 
+    method - POST 
+    IP - ::ffff:127.0.0.1
+   {"timestamp":"2024-11-04T06:27:43.803Z"}
+error: 
+    status - 500 
+    message - JsonWebTokenError: jwt malformed
+    at Object.module.exports [as verify] (C:\Users\Lenovo\express-project\node_modules\jsonwebtoken\verify.js:63:17)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:29:36
+    at Generator.next (<anonymous>)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:4:12)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:19:20
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at logger (C:\Users\Lenovo\express-project\node_modules\morgan\index.js:144:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (C:\Users\Lenovo\express-project\node_modules\body-parser\lib\types\json.js:113:7)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at urlencodedParser (C:\Users\Lenovo\express-project\node_modules\body-parser\lib\types\urlencoded.js:94:7)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:142:6)
+    at xXssProtectionMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-xss-protection\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at referrerPolicyMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\referrer-policy\index.js:24:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xPermittedCrossDomainPoliciesMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-permitted-cross-domain-policies\index.js:15:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xContentTypeOptionsMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-content-type-options\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xDownloadOptionsMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-download-options\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at strictTransportSecurityMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\strict-transport-security\index.js:34:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xPoweredByMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-powered-by\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xFrameOptionsMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-frame-options\index.js:21:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at expectCtMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\expect-ct\index.js:24:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xDnsPrefetchControlMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-dns-prefetch-control\index.js:7:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at contentSecurityPolicyMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\content-security-policy\index.js:124:4)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at helmetMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:147:6)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at cors (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\Lenovo\express-project\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at query (C:\Users\Lenovo\express-project\node_modules\express\lib\middleware\query.js:45:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\application.js:181:10)
+    at Server.app (C:\Users\Lenovo\express-project\node_modules\express\lib\express.js:39:9)
+    at Server.emit (node:events:520:28)
+    at Server.emit (node:domain:488:12)
+    at parserOnIncoming (node:_http_server:1146:12)
+    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17) 
+    url - /api/v1/notes/ 
+    method - GET 
+    IP - ::ffff:127.0.0.1
+   {"timestamp":"2024-11-04T06:27:43.831Z"}
+error: 
+    status - 500 
+    message - JsonWebTokenError: jwt malformed
+    at Object.module.exports [as verify] (C:\Users\Lenovo\express-project\node_modules\jsonwebtoken\verify.js:63:17)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:29:36
+    at Generator.next (<anonymous>)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:4:12)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:19:20
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:284:15
+    at param (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at logger (C:\Users\Lenovo\express-project\node_modules\morgan\index.js:144:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (C:\Users\Lenovo\express-project\node_modules\body-parser\lib\types\json.js:113:7)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at urlencodedParser (C:\Users\Lenovo\express-project\node_modules\body-parser\lib\types\urlencoded.js:94:7)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:142:6)
+    at xXssProtectionMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-xss-protection\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at referrerPolicyMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\referrer-policy\index.js:24:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xPermittedCrossDomainPoliciesMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-permitted-cross-domain-policies\index.js:15:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xContentTypeOptionsMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-content-type-options\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xDownloadOptionsMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-download-options\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at strictTransportSecurityMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\strict-transport-security\index.js:34:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xPoweredByMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-powered-by\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xFrameOptionsMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-frame-options\index.js:21:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at expectCtMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\expect-ct\index.js:24:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xDnsPrefetchControlMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-dns-prefetch-control\index.js:7:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at contentSecurityPolicyMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\content-security-policy\index.js:124:4)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at helmetMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:147:6)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at cors (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\Lenovo\express-project\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at query (C:\Users\Lenovo\express-project\node_modules\express\lib\middleware\query.js:45:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\application.js:181:10)
+    at Server.app (C:\Users\Lenovo\express-project\node_modules\express\lib\express.js:39:9)
+    at Server.emit (node:events:520:28)
+    at Server.emit (node:domain:488:12)
+    at parserOnIncoming (node:_http_server:1146:12)
+    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17) 
+    url - /api/v1/notes/undefined 
+    method - GET 
+    IP - ::ffff:127.0.0.1
+   {"timestamp":"2024-11-04T06:27:43.858Z"}
+error: 
+    status - 500 
+    message - JsonWebTokenError: jwt malformed
+    at Object.module.exports [as verify] (C:\Users\Lenovo\express-project\node_modules\jsonwebtoken\verify.js:63:17)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:29:36
+    at Generator.next (<anonymous>)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:4:12)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:19:20
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:284:15
+    at param (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at logger (C:\Users\Lenovo\express-project\node_modules\morgan\index.js:144:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\Lenovo\express-project\node_modules\body-parser\lib\read.js:137:5
+    at AsyncResource.runInAsyncScope (node:async_hooks:211:14)
+    at invokeCallback (C:\Users\Lenovo\express-project\node_modules\raw-body\index.js:238:16)
+    at done (C:\Users\Lenovo\express-project\node_modules\raw-body\index.js:227:7)
+    at IncomingMessage.onEnd (C:\Users\Lenovo\express-project\node_modules\raw-body\index.js:287:7)
+    at IncomingMessage.emit (node:events:520:28)
+    at IncomingMessage.emit (node:domain:488:12)
+    at endReadableNT (node:internal/streams/readable:1696:12)
+    at processTicksAndRejections (node:internal/process/task_queues:90:21) 
+    url - /api/v1/notes/update/undefined 
+    method - PUT 
+    IP - ::ffff:127.0.0.1
+   {"timestamp":"2024-11-04T06:27:43.884Z"}
+error: 
+    status - 500 
+    message - JsonWebTokenError: jwt malformed
+    at Object.module.exports [as verify] (C:\Users\Lenovo\express-project\node_modules\jsonwebtoken\verify.js:63:17)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:29:36
+    at Generator.next (<anonymous>)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:4:12)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:19:20
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:284:15
+    at param (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at logger (C:\Users\Lenovo\express-project\node_modules\morgan\index.js:144:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (C:\Users\Lenovo\express-project\node_modules\body-parser\lib\types\json.js:122:7)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at urlencodedParser (C:\Users\Lenovo\express-project\node_modules\body-parser\lib\types\urlencoded.js:103:7)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:142:6)
+    at xXssProtectionMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-xss-protection\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at referrerPolicyMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\referrer-policy\index.js:24:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xPermittedCrossDomainPoliciesMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-permitted-cross-domain-policies\index.js:15:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xContentTypeOptionsMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-content-type-options\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xDownloadOptionsMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-download-options\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at strictTransportSecurityMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\strict-transport-security\index.js:34:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xPoweredByMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-powered-by\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xFrameOptionsMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-frame-options\index.js:21:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at expectCtMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\expect-ct\index.js:24:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xDnsPrefetchControlMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-dns-prefetch-control\index.js:7:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at contentSecurityPolicyMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\content-security-policy\index.js:124:4)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at helmetMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:147:6)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at cors (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\Lenovo\express-project\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at query (C:\Users\Lenovo\express-project\node_modules\express\lib\middleware\query.js:45:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\application.js:181:10)
+    at Server.app (C:\Users\Lenovo\express-project\node_modules\express\lib\express.js:39:9)
+    at Server.emit (node:events:520:28)
+    at Server.emit (node:domain:488:12)
+    at parserOnIncoming (node:_http_server:1146:12)
+    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17) 
+    url - /api/v1/notes/archive/undefined 
+    method - PUT 
+    IP - ::ffff:127.0.0.1
+   {"timestamp":"2024-11-04T06:27:43.903Z"}
+error: 
+    status - 500 
+    message - JsonWebTokenError: jwt malformed
+    at Object.module.exports [as verify] (C:\Users\Lenovo\express-project\node_modules\jsonwebtoken\verify.js:63:17)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:29:36
+    at Generator.next (<anonymous>)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:4:12)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:19:20
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:284:15
+    at param (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at logger (C:\Users\Lenovo\express-project\node_modules\morgan\index.js:144:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (C:\Users\Lenovo\express-project\node_modules\body-parser\lib\types\json.js:122:7)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at urlencodedParser (C:\Users\Lenovo\express-project\node_modules\body-parser\lib\types\urlencoded.js:103:7)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:142:6)
+    at xXssProtectionMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-xss-protection\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at referrerPolicyMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\referrer-policy\index.js:24:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xPermittedCrossDomainPoliciesMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-permitted-cross-domain-policies\index.js:15:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xContentTypeOptionsMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-content-type-options\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xDownloadOptionsMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-download-options\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at strictTransportSecurityMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\strict-transport-security\index.js:34:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xPoweredByMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-powered-by\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xFrameOptionsMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-frame-options\index.js:21:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at expectCtMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\expect-ct\index.js:24:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xDnsPrefetchControlMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-dns-prefetch-control\index.js:7:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at contentSecurityPolicyMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\content-security-policy\index.js:124:4)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at helmetMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:147:6)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at cors (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\Lenovo\express-project\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at query (C:\Users\Lenovo\express-project\node_modules\express\lib\middleware\query.js:45:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\application.js:181:10)
+    at Server.app (C:\Users\Lenovo\express-project\node_modules\express\lib\express.js:39:9)
+    at Server.emit (node:events:520:28)
+    at Server.emit (node:domain:488:12)
+    at parserOnIncoming (node:_http_server:1146:12)
+    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17) 
+    url - /api/v1/notes/trash/undefined 
+    method - PUT 
+    IP - ::ffff:127.0.0.1
+   {"timestamp":"2024-11-04T06:27:43.938Z"}
+error: 
+    status - 500 
+    message - JsonWebTokenError: jwt malformed
+    at Object.module.exports [as verify] (C:\Users\Lenovo\express-project\node_modules\jsonwebtoken\verify.js:63:17)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:29:36
+    at Generator.next (<anonymous>)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:4:12)
+    at C:\Users\Lenovo\express-project\src\middlewares\auth.middleware.ts:19:20
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:284:15
+    at param (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:365:14)
+    at param (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:376:14)
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:421:3)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at logger (C:\Users\Lenovo\express-project\node_modules\morgan\index.js:144:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at jsonParser (C:\Users\Lenovo\express-project\node_modules\body-parser\lib\types\json.js:113:7)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at urlencodedParser (C:\Users\Lenovo\express-project\node_modules\body-parser\lib\types\urlencoded.js:94:7)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:142:6)
+    at xXssProtectionMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-xss-protection\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at referrerPolicyMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\referrer-policy\index.js:24:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xPermittedCrossDomainPoliciesMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-permitted-cross-domain-policies\index.js:15:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xContentTypeOptionsMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-content-type-options\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xDownloadOptionsMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-download-options\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at strictTransportSecurityMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\strict-transport-security\index.js:34:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xPoweredByMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-powered-by\index.js:6:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xFrameOptionsMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-frame-options\index.js:21:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at expectCtMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\expect-ct\index.js:24:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at xDnsPrefetchControlMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\x-dns-prefetch-control\index.js:7:3)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at contentSecurityPolicyMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\middlewares\content-security-policy\index.js:124:4)
+    at internalNext (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:145:6)
+    at helmetMiddleware (C:\Users\Lenovo\express-project\node_modules\helmet\dist\index.js:147:6)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at cors (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:188:7)
+    at C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:224:17
+    at originCallback (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:214:15)
+    at C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:219:13
+    at optionsCallback (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:199:9)
+    at corsMiddleware (C:\Users\Lenovo\express-project\node_modules\cors\lib\index.js:204:7)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at expressInit (C:\Users\Lenovo\express-project\node_modules\express\lib\middleware\init.js:40:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at query (C:\Users\Lenovo\express-project\node_modules\express\lib\middleware\query.js:45:5)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at trim_prefix (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:328:13)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:286:9
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\application.js:181:10)
+    at Server.app (C:\Users\Lenovo\express-project\node_modules\express\lib\express.js:39:9)
+    at Server.emit (node:events:520:28)
+    at Server.emit (node:domain:488:12)
+    at parserOnIncoming (node:_http_server:1146:12)
+    at HTTPParser.parserOnHeadersComplete (node:_http_common:118:17) 
+    url - /api/v1/notes/delete/undefined 
+    method - DELETE 
+    IP - ::ffff:127.0.0.1
+   {"timestamp":"2024-11-04T06:27:43.965Z"}
+info: Server started at http://localhost:8000/api/v1/ {"timestamp":"2024-11-04T06:37:25.626Z"}
+info: Connected to the database. {"timestamp":"2024-11-04T06:37:25.649Z"}
+info: Server started at http://localhost:8000/api/v1/ {"timestamp":"2024-11-04T06:38:36.100Z"}
+info: Connected to the database. {"timestamp":"2024-11-04T06:38:36.130Z"}
+info: Server started at http://localhost:8000/api/v1/ {"timestamp":"2024-11-04T09:30:16.758Z"}
+info: Connected to the database. {"timestamp":"2024-11-04T09:30:16.794Z"}
+error: 
+    status - 500 
+    message - JsonWebTokenError: jwt malformed
+    at module.exports [as verify] (C:\Users\Lenovo\express-project\node_modules\jsonwebtoken\verify.js:63:17)
+    at C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:37:58
+    at Generator.next (<anonymous>)
+    at C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:4:12)
+    at C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:28:32
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12) 
+    url - /api/v1/users/reset-password 
+    method - POST 
+    IP - ::1
+   {"timestamp":"2024-11-04T09:33:16.243Z"}
+error: 
+    status - 500 
+    message - JsonWebTokenError: jwt malformed
+    at module.exports [as verify] (C:\Users\Lenovo\express-project\node_modules\jsonwebtoken\verify.js:63:17)
+    at C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:37:58
+    at Generator.next (<anonymous>)
+    at C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:4:12)
+    at C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:28:32
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12) 
+    url - /api/v1/users/reset-password 
+    method - POST 
+    IP - ::1
+   {"timestamp":"2024-11-04T09:33:42.057Z"}
+error: 
+    status - 500 
+    message - ValidationError: "lastName" length must be at least 2 characters long 
+    url - /api/v1/users/register 
+    method - POST 
+    IP - ::1
+   {"timestamp":"2024-11-04T09:36:37.587Z"}
+error: 
+    status - 500 
+    message - JsonWebTokenError: jwt malformed
+    at module.exports [as verify] (C:\Users\Lenovo\express-project\node_modules\jsonwebtoken\verify.js:63:17)
+    at C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:37:58
+    at Generator.next (<anonymous>)
+    at C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:4:12)
+    at C:\Users\Lenovo\express-project\build\middlewares\auth.middleware.js:28:32
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:149:13)
+    at Route.dispatch (C:\Users\Lenovo\express-project\node_modules\express\lib\router\route.js:119:3)
+    at Layer.handle [as handle_request] (C:\Users\Lenovo\express-project\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Lenovo\express-project\node_modules\express\lib\router\index.js:47:12) 
+    url - /api/v1/notes/create 
+    method - POST 
+    IP - ::1
+   {"timestamp":"2024-11-04T09:38:40.436Z"}
+error: 
+      status - 401
+      message - Authorization token is required 
+      url - /api/v1/notes/create 
+      method - POST 
+      IP - ::1
+     {"timestamp":"2024-11-04T09:39:59.140Z"}
+info: Server started at http://localhost:8000/api/v1/ {"timestamp":"2024-11-04T11:27:20.040Z"}
+info: Connected to the database. {"timestamp":"2024-11-04T11:27:20.079Z"}

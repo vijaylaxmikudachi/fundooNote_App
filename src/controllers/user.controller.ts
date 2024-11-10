@@ -2,6 +2,7 @@ import HttpStatus from 'http-status-codes';
 import userService from '../services/user.service';
 import { Request, Response, NextFunction } from 'express';
 import { sendEmail } from '../utils/user.util';
+import { publishMessage } from '../utils/rabbitmq';
 
 class UserController {
   public UserService = new userService();
@@ -10,6 +11,13 @@ class UserController {
   public registerUser = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     try {
       const data = await this.UserService.registerUser(req.body);
+      if (data && data._id) {
+        // Send the new user data to the RabbitMQ queue = user-queue
+        publishMessage('user-queue', { userName: data.firstName,action: 'register successfully..' });
+      } else {
+        console.error("User ID not found in response data");
+      }
+
       res.status(HttpStatus.CREATED).json({
         code: HttpStatus.CREATED,
         data: data,
@@ -23,10 +31,10 @@ class UserController {
   // Log in user
   public loginUser = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
     try {
-      const { token, user } = await this.UserService.loginUser(req.body);
+      const { token } = await this.UserService.loginUser(req.body);
       res.status(HttpStatus.OK).json({
         code: HttpStatus.OK,
-        data: { user, token }, // Return the user and token
+        data: { token }, // Return the user and token
         message: 'Login successful'
       });
     } catch (error) {
