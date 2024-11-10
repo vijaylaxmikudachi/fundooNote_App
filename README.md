@@ -1,5 +1,7 @@
-#FundooNote App
-# User and Note Management API
+
+
+# FundooNote App
+## User and Note Management API
 
 This is a backend application built with Node.js, Express, MongoDB, and TypeScript that provides the following functionalities:
 - User Registration
