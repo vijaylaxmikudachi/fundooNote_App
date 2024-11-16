@@ -9,7 +9,7 @@ class UserService {
     // Check if user already exists
     const existingUser = await User.findOne({ email: body.email });
     if (existingUser) {
-      throw new Error('User already exists'); // Logic moved here
+      throw new Error('User already exists');
     }
 
     // Hash the password
@@ -22,13 +22,12 @@ class UserService {
   };
 
   // Log in user
-  public loginUser = async (body: { email: string; password: string }): Promise<{ token: string; }> => {
+  public loginUser = async (body: { email: string; password: string }): Promise<{ token: string; email: string }> => {
     const { email, password } = body;
 
     // Check if user exists
     const user = await User.findOne({ email });
-    if (!user) {
-      console.log("hello")      
+    if (!user) {     
       throw new Error('Invalid email or password');
     }
 
@@ -38,10 +37,10 @@ class UserService {
       throw new Error('Invalid email or password');
     }
 
-    // Generate JWT
+    // Generate JWT 
     const token = jwt.sign({user:{ _id: user._id,email: user.email}}, process.env.JWT_SECRET);
 
-    return { token }; // Return the token and user object if login is successful
+    return { token, email}; 
   };
 
   // Forget password service
