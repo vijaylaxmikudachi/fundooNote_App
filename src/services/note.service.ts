@@ -30,6 +30,19 @@ class NoteService {
    return note;
   };
 
+  // Service to delete a note permanently
+  public deleteNoteForever = async (noteId: string, userId: string): Promise<INote | null> => {
+    // Check if the note exists and is in trash
+    const note = await Note.findOne({ _id: noteId, createdBy: userId, isTrash: true });
+
+    if (!note) {
+      throw new Error('Note not found or it is not in trash. Cannot delete forever.');
+    }
+
+    // Delete the note permanently
+    await Note.deleteOne({ _id: noteId, createdBy: userId });
+    return note;
+  };
 
   // Service to toggle archive/unarchive
   public toggleArchiveNote = async (noteId: string, userId: string): Promise<INote | null> => {
@@ -63,21 +76,7 @@ class NoteService {
 
   return note;
 };
-
-  // Service to delete a note permanently
-  public deleteNoteForever = async (noteId: string, userId: string): Promise<INote | null> => {
-    // Check if the note exists and is in trash
-    const note = await Note.findOne({ _id: noteId, createdBy: userId, isTrash: true });
-
-    if (!note) {
-      throw new Error('Note not found or it is not in trash. Cannot delete forever.');
-    }
-
-    // Delete the note permanently
-    await Note.deleteOne({ _id: noteId, createdBy: userId });
-    return note; // Optionally return the deleted note information
-  };
-
 }
+
 
 export default NoteService;

@@ -15,7 +15,7 @@ class NoteRoutes {
 
   private routes = (): void => {
     // Route to create a new note with cache update
-    this.router.post('/create', userAuth, this.noteValidator.validateNote, cacheUpdateMiddleware, this.noteController.createNote);
+    this.router.post('', userAuth, this.noteValidator.validateNote, cacheUpdateMiddleware, this.noteController.createNote);
 
     // Route to get all Notes of a user, with caching
      this.router.get('/', userAuth, redisCacheMiddleware, this.noteController.getAllNotes);
@@ -24,16 +24,17 @@ class NoteRoutes {
     this.router.get('/:id', userAuth, redisCacheMiddleware, this.noteController.getNoteById);
 
     // Route to update a note with cache update
-    this.router.put('/update/:id', userAuth, this.noteValidator.validateNote, cacheUpdateMiddleware, this.noteController.updateNote);
-
-     // Route to toggle archive/unarchive, with cache update
-     this.router.put('/archive/:id', userAuth, cacheUpdateMiddleware, this.noteController.ArchiveNote);
-
-     // Route to toggle trash/restore, with cache update
-     this.router.put('/trash/:id', userAuth, cacheUpdateMiddleware, this.noteController.TrashNote);
+    this.router.put('/:id', userAuth, this.noteValidator.validateNote, cacheUpdateMiddleware, this.noteController.updateNote);
 
     // Route to permanently delete a note, with cache update
-    this.router.delete('/delete/:id', userAuth, cacheUpdateMiddleware, this.noteController.deleteNoteForever);
+    this.router.delete('/:id', userAuth, cacheUpdateMiddleware, this.noteController.deleteNoteForever);
+
+    // Route to toggle archive/unarchive, with cache update
+    this.router.put('/archive/:id', userAuth, cacheUpdateMiddleware, this.noteController.ArchiveNote);
+
+     
+    // Route to toggle trash/restore, with cache update
+    this.router.put('/trash/:id', userAuth, cacheUpdateMiddleware, this.noteController.TrashNote);
   };
 
   public getRoutes = (): IRouter => {
