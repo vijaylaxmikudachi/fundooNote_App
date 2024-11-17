@@ -27,14 +27,14 @@ class NoteRoutes {
     this.router.put('/:id', userAuth, this.noteValidator.validateNote, cacheUpdateMiddleware, this.noteController.updateNote);
 
     // Route to permanently delete a note, with cache update
-    this.router.delete('/:id', userAuth, cacheUpdateMiddleware, this.noteController.deleteNoteForever);
+    this.router.delete('/:id/', userAuth, cacheUpdateMiddleware, this.noteController.deleteNoteForever);
 
     // Route to toggle archive/unarchive, with cache update
-    this.router.put('/archive/:id', userAuth, cacheUpdateMiddleware, this.noteController.ArchiveNote);
+    this.router.put('/:id/archive', userAuth, cacheUpdateMiddleware, this.noteController.ArchiveNote);
 
      
     // Route to toggle trash/restore, with cache update
-    this.router.put('/trash/:id', userAuth, cacheUpdateMiddleware, this.noteController.TrashNote);
+    this.router.put('/:id/trash', userAuth, cacheUpdateMiddleware, this.noteController.TrashNote);
   };
 
   public getRoutes = (): IRouter => {

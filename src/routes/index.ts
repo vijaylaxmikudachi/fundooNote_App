@@ -23,10 +23,10 @@ const routes = (): IRouter => {
   });
   
   // User routes
-  router.use('/users', new userRoute().getRoutes());
+  router.use('/user', new userRoute().getRoutes());
 
   // Note routes
-  router.use('/notes', new noteRoute().getRoutes()); 
+  router.use('/note', new noteRoute().getRoutes()); 
 
   return router;
 };

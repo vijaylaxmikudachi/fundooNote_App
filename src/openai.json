@@ -16,12 +16,12 @@
       "description": "Operations related to user authentication"
     },
     {
-      "name": "Notes",
+      "name": "Note",
       "description": "Operations related to note management"
     }
   ],
   "paths": {
-    "/users": {
+    "/user": {
       "post": {
         "tags": ["User"],
         "summary": "Register a new user",
@@ -49,7 +49,7 @@
         }
       }
     },
-    "/users/login": {
+    "/user/login": {
       "post": {
         "tags": ["User"],
         "summary": "Log in an existing user",
@@ -76,91 +76,80 @@
           }
         }
       }
-    },
-    "/users/forget-password": {
-    "post": {
-      "tags": ["User"],
-      "summary": "Send password reset token to user's email",
-      "requestBody": {
-        "description": "Email of the user requesting password reset",
-        "required": true,
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "email": {
-                  "type": "string"
-                }
-              },
-              "required": ["email"]
+    }, "/user/forget-password": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Send password reset token to user's email",
+        "requestBody": {
+          "description": "Email of the user requesting password reset",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  }
+                },
+                "required": ["email"]
+              }
             }
           }
-        }
-      },
-      "responses": {
-        "200": {
-          "description": "Password reset token sent successfully"
         },
-        "404": {
-          "description": "User not found"
-        },
-        "500": {
-          "description": "Internal Server Error"
+        "responses": {
+          "200": {
+            "description": "Password reset token sent successfully"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
         }
       }
-    }
-  },
-  "/users/reset-password": {
-    "post": {
-      "tags": ["User"],
-      "summary": "Reset the user's password using the token",
-      "requestBody": {
-        "description": "New password and the reset token",
-        "security": [
-    {
-      "BearerAuth": []
-    }
-  ],
-        "required": true,
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "newPassword": {
-                  "type": "string"
-                }
-              },
-              "required": ["newPassword"]
+    },
+    "/user/reset-password": {
+      "post": {
+        "tags": ["User"],
+        "summary": "Reset the user's password using the token",
+        "requestBody": {
+          "description": "New password and the reset token",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "newPassword": {
+                    "type": "string"
+                  }
+                },
+                "required": ["newPassword"]
+              }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "description": "Password reset successfully"
+          },
+          "400": {
+            "description": "Invalid input"
+          },
+          "404": {
+            "description": "Token is invalid or expired"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
         }
-      },
-      "responses": {
-        "200": {
-          "description": "Password reset successfully"
-        },
-        "400": {
-          "description": "Invalid input"
-        },
-        "404": {
-          "description": "Token is invalid or expired"
-        },
-        "500": {
-          "description": "Internal Server Error"
-        }
-      },
-      "security": [
-    {
-      "BearerAuth": []
-    }
-  ]
-    }
-  },
-    "/notes": {
+      }
+    },
+    "/note": {
       "post": {
-        "tags": ["Notes"],
+        "tags": ["Note"],
         "summary": "Create a new note",
         "requestBody": {
           "description": "Details of the note to create",
@@ -189,11 +178,9 @@
             "BearerAuth": []
           }
         ]
-      }
-    },
-    "/notes/": {
+      },
       "get": {
-        "tags": ["Notes"],
+        "tags": ["Note"],
         "summary": "Get all notes for the authenticated user",
         "responses": {
           "200": {
@@ -213,9 +200,9 @@
         ]
       }
     },
-    "/notes/{id}": {
+    "/note/{id}": {
       "get": {
-        "tags": ["Notes"],
+        "tags": ["Note"],
         "summary": "Get a note by its ID",
         "parameters": [
           {
@@ -224,7 +211,8 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
+            },
+            "description": "ID of the note to retrieve"
           }
         ],
         "responses": {
@@ -243,11 +231,9 @@
             "BearerAuth": []
           }
         ]
-      }
-    },
-    "/notes/{id}": {
+      },
       "put": {
-        "tags": ["Notes"],
+        "tags": ["Note"],
         "summary": "Update a note by its ID",
         "parameters": [
           {
@@ -256,7 +242,8 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
+            },
+            "description": "ID of the note to update"
           }
         ],
         "requestBody": {
@@ -289,11 +276,9 @@
             "BearerAuth": []
           }
         ]
-      }
-    },
-    "/notes/{id}": {
+      },
       "delete": {
-        "tags": ["Notes"],
+        "tags": ["Note"],
         "summary": "Delete a note by its ID",
         "parameters": [
           {
@@ -302,7 +287,8 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
+            },
+            "description": "ID of the note to delete"
           }
         ],
         "responses": {
@@ -323,9 +309,9 @@
         ]
       }
     },
-    "/notes/archive/{id}": {
+    "/note/{id}/archive": {
       "put": {
-        "tags": ["Notes"],
+        "tags": ["Note"],
         "summary": "Toggle the archive status of a note",
         "parameters": [
           {
@@ -334,7 +320,8 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
+            },
+            "description": "ID of the note to archive/unarchive"
           }
         ],
         "responses": {
@@ -355,9 +342,9 @@
         ]
       }
     },
-    "/notes/trash/{id}": {
+    "/note/{id}/trash": {
       "put": {
-        "tags": ["Notes"],
+        "tags": ["Note"],
         "summary": "Toggle the trash status of a note",
         "parameters": [
           {
@@ -366,7 +353,8 @@
             "required": true,
             "schema": {
               "type": "string"
-            }
+            },
+            "description": "ID of the note to trash/restore"
           }
         ],
         "responses": {
@@ -405,7 +393,8 @@
           "password": {
             "type": "string"
           }
-        }
+        },
+        "required": ["firstName", "lastName", "email", "password"]
       },
       "Login": {
         "type": "object",
@@ -416,7 +405,8 @@
           "password": {
             "type": "string"
           }
-        }
+        },
+        "required": ["email", "password"]
       },
       "Note": {
         "type": "object",
@@ -436,10 +426,10 @@
     },
     "securitySchemes": {
       "BearerAuth": {
-      "type": "http",
-      "scheme": "bearer",
-      "bearerFormat": "JWT"
-    }
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
     }
   }
 }
