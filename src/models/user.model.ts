@@ -1,6 +1,5 @@
 import { Schema, model } from 'mongoose';
 import { IUser } from '../interfaces/user.interface';
-import { required } from '@hapi/joi';
 
 const userSchema = new Schema(
   {

@@ -10,7 +10,7 @@ class NoteValidator {
       color: Joi.string().optional(),
       isArchive: Joi.boolean().optional(),
       isTrash: Joi.boolean().optional(),
-      createdBy: Joi.string().required() // Make sure to validate the user ID properly
+      createdBy: Joi.string().required() 
     });
 
     const { error } = schema.validate(req.body);
@@ -29,7 +29,7 @@ class NoteValidator {
       color: Joi.string().optional(),
       isArchive: Joi.boolean().optional(),
       isTrash: Joi.boolean().optional(),
-      createdBy: Joi.string().optional() // Make sure this is optional for updates
+      createdBy: Joi.string().optional() 
     });
 
     const { error } = schema.validate(req.body);
@@ -48,7 +48,7 @@ class NoteValidator {
       color: Joi.string().optional(),
       isArchive: Joi.boolean().optional(),
       isTrash: Joi.boolean().optional(),
-      createdBy: Joi.string().optional() // Assuming createdBy is an ObjectId as a string
+      createdBy: Joi.string().optional() 
     });
 
     const { error } = schema.validate(req.body);
