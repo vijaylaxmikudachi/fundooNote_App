@@ -144,7 +144,10 @@
           "500": {
             "description": "Internal Server Error"
           }
-        }
+        },
+        "security":[{
+                "BearerAuth":[]
+        }]
       }
     },
     "/note": {
