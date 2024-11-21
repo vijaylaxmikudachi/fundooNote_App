@@ -16,7 +16,7 @@ class UserController {
         data: data,
         message: 'User registered successfully'
       });
-      publishMessage('user-queue',{"userId":data.firstName , action:"Register Successfully....."})
+      publishMessage('user-queue',{"userName":data.firstName , action:"Register Successfully....."})
     } catch (error) {
       next(error); // Pass the error to the next middleware
     }
