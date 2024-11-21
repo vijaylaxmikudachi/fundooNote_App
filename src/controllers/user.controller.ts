@@ -2,6 +2,7 @@ import HttpStatus from 'http-status-codes';
 import userService from '../services/user.service';
 import { Request, Response, NextFunction } from 'express';
 import { sendEmail } from '../utils/user.util';
+import { publishMessage } from '../utils/rabbitmq';
 
 class UserController {
   public UserService = new userService();
@@ -15,6 +16,7 @@ class UserController {
         data: data,
         message: 'User registered successfully'
       });
+      publishMessage('user-queue',{"userId":data.firstName , action:"Register Successfully....."})
     } catch (error) {
       next(error); // Pass the error to the next middleware
     }
