@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import HttpStatus from 'http-status-codes';
 import NoteService from '../services/note.service';
+import redisClient from '../config/redisClient';
 
 
 class NoteController {
@@ -9,39 +10,64 @@ class NoteController {
   // Controller to create a new note
   public createNote = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const userId = res.locals.user;  // Get the user ID from the JWT
-      const data = await this.noteService.createNote(req.body, userId);
-      res.status(HttpStatus.CREATED).json({
+      const userId = res.locals.user;
+      const newNote = await this.noteService.createNote(req.body, userId);
+  
+      // Invalidate the cache for all notes
+      await redisClient.del(`notes:${userId}`);
+  
+        res.status(HttpStatus.CREATED).json({
         code: HttpStatus.CREATED,
-        data,
-        message: 'Note created successfully'
+        message: 'Note created successfully',
+        data: newNote,
       });
     } catch (error) {
       next(error);
     }
   };
+  
 
   // Controller to get all notes for a user
   public getAllNotes = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const userId = res.locals.user;
-      const data = await this.noteService.getAllNotes(userId);
-      if (data.length === 0) {  // Check if the notes array is empty
-        res.status(HttpStatus.NOT_FOUND).json({
-          code: HttpStatus.NOT_FOUND,
-          message: 'No notes present for the user'
-        });
+  
+      // Check for cached notes
+      const cachedNotes = await redisClient.get(`notes:${userId}`);
+      if (cachedNotes) {
+        const notes = JSON.parse(cachedNotes);
+  
+        // If cached data is an empty array, proceed to fetch fresh data
+        if (notes.length === 0) {
+          console.log('Empty cache detected. Fetching fresh data...');
+        } else {
+            res.status(HttpStatus.OK).json({
+            code: HttpStatus.OK,
+            message: 'Notes fetched from cache',
+            data: notes,
+          });
+        }
       }
-      
+  
+      // Fetch notes from database
+      const data = await this.noteService.getAllNotes(userId);
+  
+      // Cache only non-empty responses
+      if (data.length > 0) {
+        await redisClient.setEx(`notes:${userId}`, 3600, JSON.stringify(data)); // Cache for 1 hour
+      }
+  
       res.status(HttpStatus.OK).json({
         code: HttpStatus.OK,
+        message: data.length > 0 ? 'Notes fetched successfully' : 'No notes found',
         data,
-        message: 'Notes fetched successfully'
       });
     } catch (error) {
       next(error);
     }
   };
+  
+  
 
   // Controller to get a note by its ID
   public getNoteById = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
@@ -57,11 +83,10 @@ class NoteController {
       });
       return;
     }
-
     res.status(HttpStatus.OK).json({
       code: HttpStatus.OK,
-      data,
-      message: 'Note fetched successfully'
+      message: 'Note fetched successfully',
+      data
     });
   } catch (error) {
     next(error);
@@ -75,11 +100,15 @@ class NoteController {
       const userId = res.locals.user;
       const noteId = req.params.id;
 
-      const data = await this.noteService.updateNote(noteId, req.body, userId);
+      const updateNote = await this.noteService.updateNote(noteId, req.body, userId);
+      // Update individual note in cache
+         await redisClient.setEx(`note:${userId}:${noteId}`, 3600, JSON.stringify(updateNote));
+      // Invalidate all notes cache
+         await redisClient.del(`notes:${userId}`);
         res.status(HttpStatus.OK).json({
         code: HttpStatus.OK,
-        
-        message: 'Note updated successfully'
+        message: 'Note updated successfully',
+        data:updateNote
       });
     } catch (error) {
       next(error);
@@ -92,10 +121,13 @@ class NoteController {
       const noteId = req.params.id;
       const userId = res.locals.user; // Get the user ID from the JWT
       const data = await this.noteService.deleteNoteForever(noteId, userId);
-      res.status(HttpStatus.OK).json({
+      // Invalidate cache
+        await redisClient.del(`note:${userId}:${noteId}`);
+        await redisClient.del(`notes:${userId}`);
+        res.status(HttpStatus.OK).json({
         code: HttpStatus.OK,
-        data,
-        message: 'Note deleted permanently'
+        message: 'Note deleted permanently',
+        data
       });
     } catch (error) {
       // Handle the specific error for notes not found in trash
@@ -118,9 +150,14 @@ public ArchiveNote = async (req: Request, res: Response, next: NextFunction): Pr
     const data = await this.noteService.toggleArchiveNote(noteId, userId);
     const message = data.isArchive ? 'Note archived successfully' : 'Note unarchived successfully';
 
+     // Clear cache
+     await redisClient.del(`notes:${userId}`);
+     await redisClient.del(`note:${userId}:${noteId}`);
+
     res.status(HttpStatus.OK).json({
       code: HttpStatus.OK,
-      message
+      message,
+      data
     });
   } catch (error) {
     next(error);
@@ -136,10 +173,14 @@ public TrashNote = async (req: Request, res: Response, next: NextFunction): Prom
     const data = await this.noteService.toggleTrashNote(noteId, userId);
 
     const message = data.isTrash ? 'Note moved to trash successfully' : 'Note restored from trash successfully';
+         // Clear cache
+      await redisClient.del(`notes:${userId}`);
+      await redisClient.del(`note:${userId}:${noteId}`);
 
       res.status(HttpStatus.OK).json({
       code: HttpStatus.OK,
-      message
+      message,
+      data
     });
   } catch (error) {
     // Specific error handling for archived notes that cannot be trashed

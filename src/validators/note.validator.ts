@@ -7,7 +7,7 @@ class NoteValidator {
     const schema = Joi.object({
       title: Joi.string().min(3).max(100).required(),
       description: Joi.string().max(500).optional(),
-      color: Joi.string().optional(),
+      color: Joi.string().pattern(/^#[0-9A-F]{6}$/i).optional(),
       isArchive: Joi.boolean().optional(),
       isTrash: Joi.boolean().optional(),
       createdBy: Joi.string().required() 

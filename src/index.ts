@@ -42,7 +42,11 @@ class App {
   }
 
   public initializeMiddleWares(): void {
-    this.app.use(cors());
+    this.app.use(cors({
+      origin: 'http://localhost:3000',
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
+      credentials: true,
+    }))
     this.app.use(helmet());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());

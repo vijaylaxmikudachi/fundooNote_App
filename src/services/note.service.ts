@@ -66,11 +66,6 @@ class NoteService {
     throw new Error('Note not found');
   }
 
-  // Prevent moving to trash if the note is archived
-  if (note.isArchive) {
-    throw new Error('Note is archived and cannot be trashed. Unarchive it first.');
-  }
-
   note.isTrash = !note.isTrash;
   await note.save();
 
