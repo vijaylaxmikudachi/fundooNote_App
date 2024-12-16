@@ -30,8 +30,8 @@ describe('User APIs Test', () => {
   const userData = {
     firstName: 'test',
     lastName: 'user',
-    email:    'kudachivijaylaxmi29@gmail.com',
-    password: 'test123',
+    email: 'kudachivijaylaxmi29@gmail.com',
+    password: 'test123'
   };
 
   const noteData = {
@@ -39,7 +39,7 @@ describe('User APIs Test', () => {
     description: 'This is a test note.',
     color: 'blue',
     isArchive: false,
-    isTrash: false,
+    isTrash: false
   };
 
   const updatedNoteData = {
@@ -47,11 +47,11 @@ describe('User APIs Test', () => {
     description: 'This is an updated test note.',
     color: 'green',
     isArchive: true,
-    isTrash: false,
+    isTrash: false
   };
 
-  let token: string; 
-  let createdNoteId:string;
+  let token: string;
+  let createdNoteId: string;
 
   describe('User Registration', () => {
     it('should register a new user successfully', async () => {
@@ -60,7 +60,10 @@ describe('User APIs Test', () => {
         .send(userData);
 
       expect(res.status).to.equal(201);
-      expect(res.body).to.have.property('message', 'User registered successfully');
+      expect(res.body).to.have.property(
+        'message',
+        'User registered successfully'
+      );
     });
   });
 
@@ -69,38 +72,41 @@ describe('User APIs Test', () => {
       const res = await request(app.getApp())
         .post('/api/v1/user/login')
         .send({ email: userData.email, password: userData.password });
-        console.log('Login Response:', res.body);
+      console.log('Login Response:', res.body);
 
       expect(res.status).to.equal(200);
-      expect(res.body.data).to.have.property('token'); 
+      expect(res.body.data).to.have.property('token');
       token = res.body.data.token;
     });
   });
 
   describe('Forgot Password', () => {
-    it('should send a reset token to the user\'s email', async function() { 
-        this.timeout(10000); // Increase timeout to 10 seconds
+    it(`"should send a reset token to the user\'s email"`, async function () {
+      this.timeout(10000); // Increase timeout to 10 seconds
 
-        const res = await request(app.getApp())
-            .post('/api/v1/user/forget-password')
-            .send({ email: userData.email });
+      const res = await request(app.getApp())
+        .post('/api/v1/user/forget-password')
+        .send({ email: userData.email });
 
-        console.log(res.body);
-        expect(res.status).to.equal(200);
-        expect(res.body).to.have.property('message', 'Reset token sent to email successfully');
+      console.log(res.body);
+      expect(res.status).to.equal(200);
+      expect(res.body).to.have.property(
+        'message',
+        'Reset token sent to email successfully'
+      );
     });
-   });
+  });
 
   describe('Create Note', () => {
     it('should create a new note successfully', async () => {
       const res = await request(app.getApp())
         .post('/api/v1/note')
-        .set('Authorization', `Bearer ${token}`) // Set the Authorization header with the token
+        .set('Authorization', `Bearer ${token}`)
         .send(noteData);
       console.log(res.body);
       expect(res.status).to.equal(201);
-      expect(res.body).to.have.property('message', 'Note created successfully'); 
-      createdNoteId = res.body.data._id; // Store the created note ID for further tests
+      expect(res.body).to.have.property('message', 'Note created successfully');
+      createdNoteId = res.body.data._id;
     });
   });
 
@@ -117,7 +123,7 @@ describe('User APIs Test', () => {
 
   describe('Get Note by ID', () => {
     it('should return a note by its ID', async () => {
-      const noteId = createdNoteId // Get the ID of the created note
+      const noteId = createdNoteId; // Get the ID of the created note
 
       const res = await request(app.getApp())
         .get(`/api/v1/note/${noteId}`)
@@ -136,7 +142,7 @@ describe('User APIs Test', () => {
         .send(updatedNoteData);
 
       expect(res.status).to.equal(200);
-      expect(res.body).to.have.property('message', 'Note updated successfully'); 
+      expect(res.body).to.have.property('message', 'Note updated successfully');
     });
   });
 
@@ -147,7 +153,10 @@ describe('User APIs Test', () => {
         .set('Authorization', `Bearer ${token}`);
       console.log(res.body);
       expect(res.status).to.equal(200);
-      expect(res.body).to.have.property('message', 'Note unarchived successfully'); 
+      expect(res.body).to.have.property(
+        'message',
+        'Note unarchived successfully'
+      );
     });
   });
 
@@ -158,7 +167,10 @@ describe('User APIs Test', () => {
         .set('Authorization', `Bearer ${token}`);
 
       expect(res.status).to.equal(200);
-      expect(res.body).to.have.property('message', 'Note moved to trash successfully'); 
+      expect(res.body).to.have.property(
+        'message',
+        'Note moved to trash successfully'
+      );
     });
   });
 
@@ -169,7 +181,7 @@ describe('User APIs Test', () => {
         .set('Authorization', `Bearer ${token}`);
 
       expect(res.status).to.equal(200);
-      expect(res.body).to.have.property('message', 'Note deleted permanently'); 
+      expect(res.body).to.have.property('message', 'Note deleted permanently');
     });
   });
 });

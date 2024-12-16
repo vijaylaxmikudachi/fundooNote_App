@@ -19,24 +19,44 @@ class NoteService {
   };
 
   // Service to get a note by its ID
-  public getNoteById = async (noteId: string, userId: string): Promise<INote | null> => {
-  const note = await Note.findOne({ _id: noteId, createdBy: userId });
-  return note;
+  public getNoteById = async (
+    noteId: string,
+    userId: string
+  ): Promise<INote | null> => {
+    const note = await Note.findOne({ _id: noteId, createdBy: userId });
+    return note;
   };
 
   // Service to update a note
-   public updateNote = async (noteId: string, body: INote, userId: string): Promise<INote | null> => {
-   const note = await Note.findOneAndUpdate({ _id: noteId, createdBy: userId }, body, { new: true });
-   return note;
+  public updateNote = async (
+    noteId: string,
+    body: INote,
+    userId: string
+  ): Promise<INote | null> => {
+    const note = await Note.findOneAndUpdate(
+      { _id: noteId, createdBy: userId },
+      body,
+      { new: true }
+    );
+    return note;
   };
 
   // Service to delete a note permanently
-  public deleteNoteForever = async (noteId: string, userId: string): Promise<INote | null> => {
+  public deleteNoteForever = async (
+    noteId: string,
+    userId: string
+  ): Promise<INote | null> => {
     // Check if the note exists and is in trash
-    const note = await Note.findOne({ _id: noteId, createdBy: userId, isTrash: true });
+    const note = await Note.findOne({
+      _id: noteId,
+      createdBy: userId,
+      isTrash: true
+    });
 
     if (!note) {
-      throw new Error('Note not found or it is not in trash. Cannot delete forever.');
+      throw new Error(
+        'Note not found or it is not in trash. Cannot delete forever.'
+      );
     }
 
     // Delete the note permanently
@@ -45,33 +65,38 @@ class NoteService {
   };
 
   // Service to toggle archive/unarchive
-  public toggleArchiveNote = async (noteId: string, userId: string): Promise<INote | null> => {
-  const note = await Note.findOne({ _id: noteId, createdBy: userId });
-  
-  if (!note) {
-    throw new Error('Note not found');
-  }
+  public toggleArchiveNote = async (
+    noteId: string,
+    userId: string
+  ): Promise<INote | null> => {
+    const note = await Note.findOne({ _id: noteId, createdBy: userId });
 
-  note.isArchive = !note.isArchive;
-  await note.save();
+    if (!note) {
+      throw new Error('Note not found');
+    }
 
-  return note;
-};
+    note.isArchive = !note.isArchive;
+    await note.save();
 
- // Service to toggle trash/restore
-  public toggleTrashNote = async (noteId: string, userId: string): Promise<INote | null> => {
-  const note = await Note.findOne({ _id: noteId, createdBy: userId });
-  
-  if (!note) {
-    throw new Error('Note not found');
-  }
+    return note;
+  };
 
-  note.isTrash = !note.isTrash;
-  await note.save();
+  // Service to toggle trash/restore
+  public toggleTrashNote = async (
+    noteId: string,
+    userId: string
+  ): Promise<INote | null> => {
+    const note = await Note.findOne({ _id: noteId, createdBy: userId });
 
-  return note;
-};
+    if (!note) {
+      throw new Error('Note not found');
+    }
+
+    note.isTrash = !note.isTrash;
+    await note.save();
+
+    return note;
+  };
 }
-
 
 export default NoteService;

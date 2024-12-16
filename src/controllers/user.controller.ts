@@ -8,7 +8,11 @@ class UserController {
   public UserService = new userService();
 
   // Register user
-  public registerUser = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+  public registerUser = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
     try {
       const data = await this.UserService.registerUser(req.body);
       res.status(HttpStatus.CREATED).json({
@@ -16,19 +20,22 @@ class UserController {
         data: data,
         message: 'User registered successfully'
       });
-      publishMessage('user-queue',{"userName":data.firstName , action:"Register Successfully....."})
+      publishMessage('user-queue', {
+        userName: data.firstName,
+        action: 'Register Successfully.....'
+      });
     } catch (error) {
       next(error); // Pass the error to the next middleware
     }
   };
 
   // Log in user
-  public loginUser = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+  public loginUser = async (req: Request, res: Response): Promise<any> => {
     try {
-      const { token , email} = await this.UserService.loginUser(req.body);
+      const { token, email } = await this.UserService.loginUser(req.body);
       res.status(HttpStatus.OK).json({
         code: HttpStatus.OK,
-        data: { email , token }, 
+        data: { email, token },
         message: 'Log in successful'
       });
     } catch (error) {
@@ -37,7 +44,11 @@ class UserController {
   };
 
   // Forget password
-  public forgetPassword = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+  public forgetPassword = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
     try {
       const { email } = req.body;
       const token = await this.UserService.forgetPassword(email);
@@ -47,7 +58,7 @@ class UserController {
 
       res.status(HttpStatus.OK).json({
         code: HttpStatus.OK,
-        message: 'Reset token sent to email successfully',
+        message: 'Reset token sent to email successfully'
       });
     } catch (error) {
       next(error);
@@ -55,7 +66,11 @@ class UserController {
   };
 
   // Reset password
-  public resetPassword = async (req: Request, res: Response, next: NextFunction): Promise<any> => {
+  public resetPassword = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): Promise<any> => {
     try {
       const token = req.header('Authorization')?.split(' ')[1];
       const { newPassword } = req.body;
@@ -66,17 +81,16 @@ class UserController {
         });
       }
       const userId = res.locals.user; // Get the user ID from the JWT
-      await this.UserService.resetPassword(newPassword,userId);
+      await this.UserService.resetPassword(newPassword, userId);
 
       res.status(HttpStatus.OK).json({
         code: HttpStatus.OK,
-        message: 'Password reset successfully',
+        message: 'Password reset successfully'
       });
     } catch (error) {
       next(error);
     }
   };
-
 }
 
 export default UserController;

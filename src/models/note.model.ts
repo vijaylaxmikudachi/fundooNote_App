@@ -1,17 +1,17 @@
-import mongoose,{ Schema, model } from 'mongoose';
+import mongoose, { Schema, model } from 'mongoose';
 import { INote } from '../interfaces/note.interface';
 
 const noteSchema = new Schema(
   {
     title: {
       type: String,
-      required: true,
+      required: true
     },
     description: {
-      type: String,
+      type: String
     },
     color: {
-      type: String,
+      type: String
     },
     isArchive: {
       type: Boolean,
@@ -24,13 +24,13 @@ const noteSchema = new Schema(
       index: true
     },
     createdBy: {
-      type: mongoose.Schema.Types.ObjectId, 
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: 'User', 
-    },
+      ref: 'User'
+    }
   },
   {
-    timestamps: true,
+    timestamps: true
   }
 );
 

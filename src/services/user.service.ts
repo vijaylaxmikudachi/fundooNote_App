@@ -22,12 +22,15 @@ class UserService {
   };
 
   // Log in user
-  public loginUser = async (body: { email: string; password: string }): Promise<{ token: string; email: string }> => {
+  public loginUser = async (body: {
+    email: string;
+    password: string;
+  }): Promise<{ token: string; email: string }> => {
     const { email, password } = body;
 
     // Check if user exists
     const user = await User.findOne({ email });
-    if (!user) {     
+    if (!user) {
       throw new Error('Invalid email or password');
     }
 
@@ -37,10 +40,13 @@ class UserService {
       throw new Error('Invalid email or password');
     }
 
-    // Generate JWT 
-    const token = jwt.sign({user:{ _id: user._id,email: user.email}}, process.env.JWT_SECRET);
+    // Generate JWT
+    const token = jwt.sign(
+      { user: { _id: user._id, email: user.email } },
+      process.env.JWT_SECRET
+    );
 
-    return { token, email}; 
+    return { token, email };
   };
 
   // Forget password service
@@ -50,7 +56,10 @@ class UserService {
       throw new Error('User not found');
     }
 
-    const token = jwt.sign({user:{ _id: user._id }}, process.env.JWT_SECRET1);
+    const token = jwt.sign(
+      { user: { _id: user._id } },
+      process.env.JWT_SECRET1
+    );
 
     return token;
   };

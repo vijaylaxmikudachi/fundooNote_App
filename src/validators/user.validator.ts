@@ -20,7 +20,11 @@ class UserValidator {
   };
 
   //validation for login
-  public userlogin=(req: Request, res: Response, next: NextFunction): void =>{
+  public userlogin = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ): void => {
     const schema = Joi.object({
       email: Joi.string().email().required(),
       password: Joi.string().min(6).required()
@@ -32,34 +36,38 @@ class UserValidator {
     }
 
     next(); // Proceed to the next middleware if validation is successful
-  }
+  };
 
   // Validate email for forget password
   public emailValidator = (req: Request, res: Response, next: NextFunction) => {
     const schema = Joi.object({
-      email: Joi.string().email().required(),
+      email: Joi.string().email().required()
     });
 
     const { error } = schema.validate(req.body);
     if (error) {
       return res.status(400).json({
-        error: error.details[0].message,
+        error: error.details[0].message
       });
     }
     next();
   };
 
   // Validate reset password request (token and new password)
-  public resetPasswordValidator = (req: Request, res: Response, next: NextFunction) => {
+  public resetPasswordValidator = (
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) => {
     const schema = Joi.object({
       token: Joi.string().required(),
-      newPassword: Joi.string().min(6).required(),
+      newPassword: Joi.string().min(6).required()
     });
 
     const { error } = schema.validate(req.body);
     if (error) {
       return res.status(400).json({
-        error: error.details[0].message,
+        error: error.details[0].message
       });
     }
     next();

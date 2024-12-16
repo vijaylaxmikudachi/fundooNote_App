@@ -5,23 +5,23 @@ const userSchema = new Schema(
   {
     firstName: {
       type: String,
-      required:true
+      required: true
     },
-    lastName:{
+    lastName: {
       type: String
     },
-    email:{
-      type:String,
-      required:true
+    email: {
+      type: String,
+      required: true
     },
-    password:{
-      type:String,
-      required:true
+    password: {
+      type: String,
+      required: true
     },
     resetPasswordToken: {
       type: String,
-      required: false,
-    },
+      required: false
+    }
   },
   {
     timestamps: true

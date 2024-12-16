@@ -1,12 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
 import HttpStatus from 'http-status-codes';
-import NoteService from '../services/note.service';
 import redisClient from '../config/redisClient';
 
-const noteService = new NoteService();
-
 // Redis caching middleware
-export const redisCacheMiddleware = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const redisCacheMiddleware = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
   try {
     const userId = res.locals.user;
     const noteId = req.params.id;
@@ -16,10 +17,10 @@ export const redisCacheMiddleware = async (req: Request, res: Response, next: Ne
         // Handle individual note caching
         const cachedNote = await redisClient.get(`note:${userId}:${noteId}`);
         if (cachedNote) {
-            res.status(HttpStatus.OK).json({
+          res.status(HttpStatus.OK).json({
             code: HttpStatus.OK,
             data: JSON.parse(cachedNote),
-            message: 'Note fetched from cache',
+            message: 'Note fetched from cache'
           });
         }
       } else {
@@ -28,10 +29,10 @@ export const redisCacheMiddleware = async (req: Request, res: Response, next: Ne
         if (cachedNotes) {
           const notes = JSON.parse(cachedNotes);
           if (notes.length > 0) {
-              res.status(HttpStatus.OK).json({
+            res.status(HttpStatus.OK).json({
               code: HttpStatus.OK,
               data: notes,
-              message: 'Notes fetched from cache',
+              message: 'Notes fetched from cache'
             });
           }
         }
@@ -45,6 +46,3 @@ export const redisCacheMiddleware = async (req: Request, res: Response, next: Ne
     next(error);
   }
 };
-
-
-

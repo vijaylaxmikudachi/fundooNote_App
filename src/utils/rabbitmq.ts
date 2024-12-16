@@ -32,6 +32,8 @@ export const publishMessage = (queue: string, message: any): void => {
   }
 
   channel.assertQueue(queue, { durable: true });
-  channel.sendToQueue(queue, Buffer.from(JSON.stringify(message)), { persistent: true });
+  channel.sendToQueue(queue, Buffer.from(JSON.stringify(message)), {
+    persistent: true
+  });
   console.log('Message sent to queue:', message);
 };

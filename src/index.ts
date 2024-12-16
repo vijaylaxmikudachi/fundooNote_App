@@ -11,11 +11,10 @@ import ErrorHandler from './middlewares/error.middleware';
 import Logger from './config/logger';
 
 import morgan from 'morgan';
-import { connectToRabbitMQ } from './utils/rabbitmq'; 
+import { connectToRabbitMQ } from './utils/rabbitmq';
 
 // Initialize RabbitMQ connection
 connectToRabbitMQ();
-
 
 class App {
   public app: Application;
@@ -42,11 +41,13 @@ class App {
   }
 
   public initializeMiddleWares(): void {
-    this.app.use(cors({
-      origin: 'http://localhost:3000',
-      methods: ['GET', 'POST', 'PUT', 'DELETE'],
-      credentials: true,
-    }))
+    this.app.use(
+      cors({
+        origin: 'http://localhost:3000',
+        methods: ['GET', 'POST', 'PUT', 'DELETE'],
+        credentials: true
+      })
+    );
     this.app.use(helmet());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(express.json());

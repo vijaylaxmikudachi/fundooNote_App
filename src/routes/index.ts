@@ -21,12 +21,12 @@ const routes = (): IRouter => {
   router.get('/', (req, res) => {
     res.json('Welcome to Fundoo Notes');
   });
-  
+
   // User routes
   router.use('/user', new userRoute().getRoutes());
 
   // Note routes
-  router.use('/note', new noteRoute().getRoutes()); 
+  router.use('/note', new noteRoute().getRoutes());
 
   return router;
 };
