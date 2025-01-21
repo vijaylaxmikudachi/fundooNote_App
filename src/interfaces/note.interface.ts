@@ -7,4 +7,5 @@ export interface INote extends Document {
   isArchive: boolean;
   isTrash: boolean;
   createdBy: Types.ObjectId;
+  expiresAt:Date;
 }

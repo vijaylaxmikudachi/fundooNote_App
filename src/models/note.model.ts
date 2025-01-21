@@ -27,11 +27,16 @@ const noteSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: 'User'
+    },
+    expiresAt:{
+      type:Date,
+      default:():Date => new Date(Date.now()+7 * 24 * 60 * 60 * 1000),
     }
   },
   {
     timestamps: true
   }
 );
+noteSchema.index({expireAt:1},{ expireAfterSeconds: 0})
 
 export default model<INote>('Note', noteSchema);
